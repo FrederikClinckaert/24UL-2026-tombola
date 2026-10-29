@@ -1,0 +1,2 @@
+# Keep the ticket list byte for byte, so its SHA-256 is the same on every computer.
+tombola_tickets.csv -text
