@@ -10,7 +10,8 @@ see [the plain explanation](README.md) (in Dutch).
 > | Ticket list | [`tombola_tickets.csv`](https://github.com/FrederikClinckaert/24UL-2026-tombola/blob/main/tombola_tickets.csv), frozen on 29 October 2026 at 12:33 (Brussels time) |
 > | SHA-256 of the ticket list | `528c6c5b092380e8de2a82df1fed84cb4030fcd5f0612fda9a46fa93867a3cb6` |
 > | drand chain | quicknet, `52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971` |
-> | drand round | **[TO BE ANNOUNCED]**, published at **[TO BE ANNOUNCED]** |
+> | drand round | **[33609412](https://api.drand.sh/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971/public/33609412)**, published on **Monday 2 November 2026 at 16:00:00** Brussels time (15:00:00 UTC, unix time `1793631600`) |
+> | Result | **[AFTER THE DRAW]**: the round's random value and the output of `tombola_draw.py` |
 > | Draw script | [`tombola_draw.py`](https://github.com/FrederikClinckaert/24UL-2026-tombola/blob/main/tombola_draw.py) (Python 3.9+, standard library only) |
 > | Repository | [github.com/FrederikClinckaert/24UL-2026-tombola](https://github.com/FrederikClinckaert/24UL-2026-tombola) |
 
@@ -154,7 +155,7 @@ Group E won 3rd prize with only 5 tickets (a 12.5% chance at that point): small 
 ```bash
 git clone https://github.com/FrederikClinckaert/24UL-2026-tombola
 cd 24UL-2026-tombola
-python3 tombola_draw.py tombola_tickets.csv <round>
+python3 tombola_draw.py tombola_tickets.csv 33609412
 ```
 
 (Or download the repository as a ZIP from GitHub.)
@@ -186,10 +187,12 @@ the check above would show it. (The organisers' dashboard runs an identical copy
 1. **Before the draw:** the points are final. The ticket list is frozen in the dashboard, and the following are
    published together: `tombola_tickets.csv`, its SHA-256, `tombola_draw.py`, these documents, and the drand round
    with its time. All of this happens **before that round is published**.
-2. **At the ceremony:** after the round's time, the dashboard fetches the round from a drand relay and shows the
-   random value with a link to the relay. Then the prizes are revealed one by one: the wheel spins and stops on the
-   winning ticket.
-3. **Afterwards:** anyone can check it (see section 4).
+2. **At the ceremony:** after the round's time, the dashboard's first spin fetches the round from a drand relay.
+   The prizes are revealed one by one: the wheel spins and stops on the winning ticket. The screen shows only the
+   wheel and the winners. The fingerprint, the random value and every prize's ticket ranges and chances are in a
+   collapsed panel of the dashboard.
+3. **Afterwards:** the random value and the full output of `tombola_draw.py` are published here, and anyone can
+   check it (see section 4).
 
 ## 6. What the organisers can and can't do
 

@@ -10,8 +10,9 @@ iedereen ze achteraf kan controleren.**
 > |---|---|
 > | De ticketlijst | [`tombola_tickets.csv`](https://github.com/FrederikClinckaert/24UL-2026-tombola/blob/main/tombola_tickets.csv), bevroren op **29 oktober 2026 om 12:33** |
 > | Vingerafdruk van de ticketlijst | `528c6c5b092380e8de2a82df1fed84cb4030fcd5f0612fda9a46fa93867a3cb6` |
-> | Het willekeurige getal dat we gebruiken | **drand-ronde [NOG AAN TE KONDIGEN]** |
-> | Dat getal verschijnt op | **[NOG AAN TE KONDIGEN]** |
+> | Het willekeurige getal dat we gebruiken | **drand-ronde 33609412** |
+> | Dat getal verschijnt op | **maandag 2 november 2026 om 16:00:00** (Belgische tijd). Vanaf dan staat het [hier](https://api.drand.sh/52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971/public/33609412). |
+> | De uitslag, met alle details | **[VOLGT NA DE TREKKING]** |
 > | Het controleprogramma | [`tombola_draw.py`](https://github.com/FrederikClinckaert/24UL-2026-tombola/blob/main/tombola_draw.py) |
 > | Alles staat op | [github.com/FrederikClinckaert/24UL-2026-tombola](https://github.com/FrederikClinckaert/24UL-2026-tombola) |
 
@@ -65,10 +66,12 @@ verschijnt.** Vergelijk de datum en het uur van onze aankondiging met het tijdst
 
 ## Wat je ziet tijdens de trekking
 
-- De vingerafdruk van de ticketlijst op het scherm. Vergelijk hem met die hierboven.
-- Het drand-getal, live opgehaald en op het scherm getoond, met een link naar de website van drand.
-- Voor elke prijs draait het rad en stopt het op het winnende ticket. Het scherm toont het ticketnummer en welke
-  tickets elke groep had.
+Op het scherm draait het rad voor elke prijs, en het stopt op het winnende ticket. De technische details laten we
+van het scherm, maar ze komen meteen na de trekking allemaal hier te staan:
+
+- het drand-getal van de aangekondigde ronde;
+- voor elke prijs het winnende ticket, welke tickets elke groep had en ieders kans;
+- de volledige uitvoer van `tombola_draw.py`, zodat je ze naast je eigen controle kunt leggen.
 
 ## Zelf controleren
 
@@ -76,10 +79,10 @@ Je hebt Python nodig. Op een Mac staat het er al op; op Windows installeer je he
 [python.org](https://www.python.org/downloads/). Je hoeft verder niets te installeren.
 
 1. Download deze repository: de groene knop **Code → Download ZIP**, en pak de ZIP uit.
-2. Open een terminal in die map en typ, met het rondenummer uit "De feiten":
+2. Open een terminal in die map en typ:
 
    ```bash
-   python3 tombola_draw.py tombola_tickets.csv <ronde>
+   python3 tombola_draw.py tombola_tickets.csv 33609412
    ```
 
    Op Windows typ je `python` in plaats van `python3`.
